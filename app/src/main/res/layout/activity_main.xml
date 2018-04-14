@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zxj.mytablayout.tablayout.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:text="Hello World!"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="5dp"
+        app:tabIndicatorColor="#fd676f"
+        app:tabLineOffset="-20dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#fd676f"
+        app:tabTextColor="#fd676f" />
+
+</android.support.constraint.ConstraintLayout>

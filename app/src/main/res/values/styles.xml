@@ -1,0 +1,55 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <declare-styleable name="TabLayout">
+        <attr name="tabIndicatorColor" format="color" />
+        <attr name="tabIndicatorHeight" format="dimension" />
+        <attr name="tabContentStart" format="dimension" />
+        <attr name="tabBackground" format="reference" />
+        <attr name="tabMode">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="tabGravity">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="tabMinWidth" format="dimension" />
+        <attr name="tabMaxWidth" format="dimension" />
+        <attr name="tabTextAppearance" format="reference" />
+        <attr name="tabTextColor" format="color" />
+        <attr name="tabSelectedTextColor" format="color" />
+        <attr name="tabPaddingStart" format="dimension" />
+        <attr name="tabPaddingTop" format="dimension" />
+        <attr name="tabPaddingEnd" format="dimension" />
+        <attr name="tabPaddingBottom" format="dimension" />
+        <attr name="tabPadding" format="dimension" />
+
+        <!--底部分隔栏的颜色-->
+        <attr name="bottomLineColor" format="color" />
+        <!--竖直分隔线的颜色-->
+        <attr name="dividerColor" format="color" />
+        <!--底部分隔栏的高度-->
+        <attr name="bottomLineHeight" format="dimension" />
+        <!--竖直分隔线的宽与高-->
+        <attr name="dividerWidth" format="dimension" />、
+        <attr name="dividerHeight" format="dimension" />
+        <attr name="bottomLineMode">
+            <!--不显示底部分割栏-->
+            <enum name="none" value="0" />
+            <!--显示在滑动栏外面-->
+            <enum name="outer" value="1" />
+            <!--显示在滑动栏里面-->
+            <enum name="inner" value="2" />
+        </attr>
+        <!--下划线的宽度，负数为短，正数为长-->
+        <attr name="tabLineOffset" format="dimension"/>
+    </declare-styleable>
+</resources>
