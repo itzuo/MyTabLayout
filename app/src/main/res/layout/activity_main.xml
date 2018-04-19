@@ -12,7 +12,7 @@
         app:tabGravity="fill"
         app:tabIndicatorHeight="5dp"
         app:tabIndicatorColor="#fd676f"
-        app:tabLineOffset="-20dp"
+        app:tabLineOffset="10dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#fd676f"
         app:tabTextColor="#fd676f" />

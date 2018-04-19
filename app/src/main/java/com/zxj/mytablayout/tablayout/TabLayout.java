@@ -2050,11 +2050,13 @@ public class TabLayout extends HorizontalScrollView {
                     canvas.drawRect(mIndicatorLeft, getHeight() - mSelectedIndicatorHeight,
                             mIndicatorRight, getHeight(), mSelectedIndicatorPaint);
                 }else {
-                    //Tab的宽度
+                    //原来的下划线的长度(也就是Tab的宽度)
                     int width = mIndicatorRight - mIndicatorLeft;
-                    RectF oval3 = new RectF(mIndicatorLeft + width / 4 - mTabLineOffset, getHeight() - mSelectedIndicatorHeight,
-                            mIndicatorRight - width / 4 + mTabLineOffset, getHeight());
-                    canvas.drawRoundRect(oval3, 30, 30, mSelectedIndicatorPaint);
+                    //Tab的中心点的坐标（mIndicatorRight-width/2也是）
+                    int tabCenter = mIndicatorLeft+width/2;
+                    RectF oval3 = new RectF(tabCenter-mTabLineOffset, getHeight() - mSelectedIndicatorHeight,
+                            mIndicatorRight-width/2+mTabLineOffset, getHeight());
+                    canvas.drawRoundRect(oval3,30,30,mSelectedIndicatorPaint);
                 }
             }
         }

@@ -49,7 +49,7 @@
             <!--显示在滑动栏里面-->
             <enum name="inner" value="2" />
         </attr>
-        <!--下划线的宽度，负数为短，正数为长-->
+        <!--下划线的宽度-->
         <attr name="tabLineOffset" format="dimension"/>
     </declare-styleable>
 </resources>
