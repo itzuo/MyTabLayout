@@ -123,7 +123,7 @@ TabLayout 先保留系统的属性（将系统定义的属性复制出来），�
 
 下图为添加了自定义属性之后,(先增加一个属性tabLineOffset，用于控制下划线的长度)
 
-![](https://upload-images.jianshu.io/upload_images/2918620-88588e84f4a6511b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/2918620-c324b92a6ba17d42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 3、自定义属性的实现
 1、在TabLayout的构造方法中加入自己的自定义属性
@@ -137,22 +137,24 @@ public void draw(Canvas canvas) {
     super.draw(canvas);
     // Thick colored underline below the current selection
     if (mIndicatorLeft >= 0 && mIndicatorRight > mIndicatorLeft) {
-        if (mTabLineOffset == 0) {
+        if(mTabLineOffset == 0){
             canvas.drawRect(mIndicatorLeft, getHeight() - mSelectedIndicatorHeight,
-                    mIndicatorRight, getHeight(), mSelectedIndicatorPaint);
+                mIndicatorRight, getHeight(), mSelectedIndicatorPaint);
         }else {
-            //Tab的宽度
+            //原来的下划线的长度(也就是Tab的宽度)
             int width = mIndicatorRight - mIndicatorLeft;
-            RectF oval3 = new RectF(mIndicatorLeft + width / 4 - mTabLineOffset, getHeight() - mSelectedIndicatorHeight,
-                    mIndicatorRight - width / 4 + mTabLineOffset, getHeight());
-            canvas.drawRoundRect(oval3, 30, 30, mSelectedIndicatorPaint);
+            //Tab的中心点的坐标（mIndicatorRight-width/2也是）
+            int tabCenter = mIndicatorLeft+width/2;
+            RectF oval3 = new RectF(tabCenter-mTabLineOffset, getHeight() - mSelectedIndicatorHeight,
+                    mIndicatorRight-width/2+mTabLineOffset, getHeight());
+            canvas.drawRoundRect(oval3,30,30,mSelectedIndicatorPaint);
         }
     }
 }
 ```
 这里我进行了判断，如果在xml中没有使用自定义属性mTabLineOffset ，就还是展示的是系统TabLayout的样式，否者，就是我们可控制的下划线长度。
 
-这里我们先取了Tab的宽度，让后让其宽度的四分之一加上我们自定义属性给的差值
+这里我们先取了Tab的宽度，算出Tab的中心坐标位置，让后根据中心位置坐标和mTabLineOffset 值来确定下划线的长度。
 
 到此，任务完成了，
 ### 五、使用
@@ -196,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
         app:tabGravity="fill"
         app:tabIndicatorHeight="5dp"
         app:tabIndicatorColor="#fd676f"
-        app:tabLineOffset="-20dp"
+        app:tabLineOffset="20dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#fd676f"
         app:tabTextColor="#fd676f" />
@@ -204,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
 </android.support.constraint.ConstraintLayout>
 ```
 3、最终效果如图
+
 ![](https://upload-images.jianshu.io/upload_images/2918620-9fff40a48d82524b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 当然，这只是一个小小的改动，如有更复杂的需求，可以进一步的修改，反正限制源码都是你的了，你想怎么改就怎么改！
